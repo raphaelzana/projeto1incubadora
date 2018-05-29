@@ -19,8 +19,10 @@ public class Sugestao {
 
     private String nome;
 
+    private String email;
+
     private LocalDateTime dataAtual;
 
-    private String sugestao;
+    private String conteudo;
 
 }

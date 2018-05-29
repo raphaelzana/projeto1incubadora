@@ -6,6 +6,7 @@ import br.com.s2it.incubadora.projeto1incubadora.service.ServiceSugestao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -13,6 +14,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import javax.xml.ws.Response;
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value = "/sugestao")
 public class SugestaoController {
@@ -33,7 +35,7 @@ public class SugestaoController {
     }
 
 
-    @PostMapping(value = "/")
+    @PostMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> addSug(@RequestBody Sugestao sugestao, UriComponentsBuilder builder){
         sugestaoService.addSugestao(sugestao);
         HttpHeaders headers = new HttpHeaders();
