@@ -48,7 +48,7 @@ public class SugestaoController {
         return new ResponseEntity<Sugestao>(sugestao, HttpStatus.NO_CONTENT);
     }*/
 
-    @DeleteMapping("esponse/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteSugestao (@PathVariable("id") Long id){
         sugestaoService.remover(id);
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
